@@ -1,3 +1,4 @@
+using AzureDevelopment.Model;
 using AzureDevelopment.Services;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ public class IndexModel : PageModel
     private readonly StorageService _storageService;
 
     public string? AccountName { get; private set; }
-    public List<string>? Blobs{ get; private set; }
+    public List<AzureBlobItem>? Blobs{ get; private set; }
 
     public IndexModel(StorageService storageService)
     {

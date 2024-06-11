@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using AzureDevelopment.Model;
 
 namespace AzureDevelopment.Services;
 
@@ -17,16 +18,22 @@ public class StorageService
         return _blobServiceClient.AccountName;
     }
 
-    internal List<string> GetBlobsInContainer(string containerName)
+    internal List<AzureBlobItem> GetBlobsInContainer(string containerName)
     {
         var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
         var blobs = containerClient.GetBlobs();
 
-        List<string> result = [];
+        List<AzureBlobItem> result = [];
 
         foreach(var blob in blobs)
         {
-            result.Add(blob.Name);
+            var blobClient = containerClient.GetBlobClient(blob.Name);
+            result.Add(new AzureBlobItem()
+            {
+                Name = blobClient.Name,
+                Href = blobClient.Uri.ToString()
+
+            });
         }
 
         return result;

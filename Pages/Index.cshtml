@@ -15,7 +15,7 @@
                         @foreach (var blob in Model.Blobs)
                         {
                             <tr>
-                                <td>@blob</td>
+                                <td><a href="@blob.Href"> @blob.Name</a></td>
                             </tr>
                         }
                     </tbody>
