@@ -17,7 +17,7 @@ public class StorageService
         return _blobServiceClient.AccountName;
     }
 
-    internal List<string> GetBlobsInContainerAsync(string containerName)
+    internal List<string> GetBlobsInContainer(string containerName)
     {
         var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
         var blobs = containerClient.GetBlobs();

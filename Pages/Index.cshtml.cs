@@ -1,23 +1,35 @@
 using AzureDevelopment.Services;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AzureDevelopment.Pages;
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
-    private readonly IConfiguration _configuration;
+
     private readonly StorageService _storageService;
-    public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration, StorageService storageService)
+
+    public string? AccountName { get; private set; }
+    public List<string>? Blobs{ get; private set; }
+
+    public IndexModel(StorageService storageService)
     {
-        _logger = logger;
-        _configuration = configuration;
         _storageService = storageService;
+    }
+
+    public void OnGet()
+    {
+        GetAccountName();
+        GetBlobs();
+    }
+
+    private void GetBlobs()
+    {
+        Blobs = _storageService.GetBlobsInContainer("publicfiles");
     }
 
     public void GetAccountName()
     {
-        var accountName = _storageService.GetAccountName();
-        //var blobs = _storageService.GetBlobsInContainerAsync("publicfiles");
+        AccountName = _storageService.GetAccountName();
     }
 }
