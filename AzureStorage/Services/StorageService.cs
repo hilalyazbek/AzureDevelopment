@@ -38,4 +38,10 @@ public class StorageService
 
         return result;
     }
+
+    internal BlobClient GetBlobClient(string containerName, string fileName)
+    {
+        var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+        return containerClient.GetBlobClient(fileName);
+    }
 }

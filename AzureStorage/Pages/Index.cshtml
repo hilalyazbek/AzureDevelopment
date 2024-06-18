@@ -5,22 +5,30 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-2">
+            <label for="fileUpload" class="form-label">
+                Select File to Upload
+            </label>
+            <input id="fileUpload" multiple name="fileUpload" type="file" class="form-control" />
+        </div>
+        <div class="mb-2">
+            <button class="btn btn-primary">Upload</button>
+        </div>
+    </form>
+    <h1 class="display-10">Welcome</h1>
     <div>
-        <p><h3>@Model.AccountName</h3></p>
-        <p>
-            <div>
-                <table class="table">
-                    <tbody>
-                        @foreach (var blob in Model.Blobs)
-                        {
-                            <tr>
-                                <td><a href="@blob.Href"> @blob.Name</a></td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </p>
+
+        <table class="table">
+            <tbody>
+                @foreach (var blob in Model.Blobs)
+                {
+                    <tr>
+                        <td><a href="@blob.Href"> @blob.Name</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
+
