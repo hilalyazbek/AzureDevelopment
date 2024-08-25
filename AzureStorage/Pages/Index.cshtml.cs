@@ -19,7 +19,7 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        GetBlobs();
+        //GetBlobs();
     }
 
     public async Task<IActionResult> OnPostAsync()

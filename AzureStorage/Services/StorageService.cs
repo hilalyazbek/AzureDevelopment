@@ -25,7 +25,7 @@ public class StorageService
 
         List<AzureBlobItem> result = [];
 
-        foreach(var blob in blobs)
+        foreach (var blob in blobs)
         {
             var blobClient = containerClient.GetBlobClient(blob.Name);
             result.Add(new AzureBlobItem()
