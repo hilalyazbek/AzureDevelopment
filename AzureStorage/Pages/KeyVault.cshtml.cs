@@ -16,7 +16,8 @@ public class KeyVaultModel : PageModel
     {
         _keyVaultService = keyVaultService;
 
-        SecretValue = _keyVaultService.GetSecretValue("ConnectionString");
+        SecretValue = _keyVaultService.GetSecretValue("APIKEY");
+        KeyValue = _keyVaultService.GetKeyValue("GeneratedKey");
     }
     public void OnGet()
     {
