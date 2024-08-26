@@ -15,7 +15,7 @@ Stay tuned for more updates and happy coding! 🚀
 
 ## Getting Started
 
-To start playing around with the code samples, check out the [Setup](#setup) section. Each blog post will give you detailed instructions and explain what's going on in the corresponding project.
+To start playing around with the code samples. Each blog post will give you detailed instructions and explain what's going on in the corresponding project.
 
 ## Prerequisites
 
